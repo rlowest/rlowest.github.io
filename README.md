@@ -16,6 +16,7 @@
                 <li class="pb-3"><a href="#">실습 과제 3_Layout</a><span class="badge bg-primary">제출완료</span></li>
                 <li class="pb-3"><a href="#">실습 과제 4_JavaScript 1</a><span class="badge bg-primary">제출예정</span></li>
                 <li class="pb-3"><a href="#">실습 과제 5_JavaScript 2</a><span class="badge bg-primary">제출예정</span></li>
+                <li class="pb-3"><a href="main.html">Project</a><span class="badge bg-primary">제출예정</span></li>
             </ul>
         </div>
     </body>
