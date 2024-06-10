@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>2311221 이은서</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.bundle.min.js"></script>
+        <style>
+            .button {
+                color: white;
+                background-color: rgb(2, 87, 79);
+                padding: 10px 20px;
+                font-size: 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <div class="container mt-3 ">
-            <h1>index.html (컴퓨터과학전공 2311221 이은서)</h1>
+            <h1>Project 주제 소개</h1>
             <hr>
-            <ul class="nav flex-column">
-                <li class="pb-3"><a href="#">실습 과제 1_HTML</a><span class="badge bg-primary">제출완료</span></li>
-                <li class="pb-3"><a href="#">실습 과제 2_CSS</a><span class="badge bg-primary">제출완료</span></li>
-                <li class="pb-3"><a href="#">실습 과제 3_Layout</a><span class="badge bg-primary">제출완료</span></li>
-                <li class="pb-3"><a href="#">실습 과제 4_JavaScript 1</a><span class="badge bg-primary">제출예정</span></li>
-                <li class="pb-3"><a href="#">실습 과제 5_JavaScript 2</a><span class="badge bg-primary">제출예정</span></li>
-                <li class="pb-3"><a href="main.html">Project</a><span class="badge bg-primary">제출예정</span></li>
-            </ul>
+            <h1>Project 바로가기</h1>
+            <button class="button" onclick="redirectToLink()">Final Project</button>
+            <hr>
         </div>
+        <script>
+            function redirectToLink() {
+                window.location.href = "main.html"
+            }
+        </script>
     </body>
 </html>
