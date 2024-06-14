@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>HOME</title>
 </head>
 <style>
-    header, nav {
-        display: inline-block;
-        vertical-align: top;
+    * {
+        box-sizing: border-box;
     }
     header {
-        width: 10%;
+        padding: 30px;
+        text-align: center;
+        color: white;
     }
     nav {
-        width: 90%;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(2, 87, 79);
+    }
+    article {
+        float: left;
+        width: 80%;
+        height: 500px;
+        padding: 20px;
+        background-color: #ccc;
+    }
+    aside {
+        float: left;
+        width: 20%;
+        height: 500px;
+        padding: 20px;
+        background-color: #f1f1f1;
+        text-align: center;
+    }
+    section::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    footer {
+        background-color: rgb(2, 87, 79);
+        padding: 10px;
+        height: 50px;
+        text-align: center;
+        color: white;
     }
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: rgb(2, 87, 79);
     }
     li {
         float: left;
@@ -61,22 +89,22 @@
     .dropdown:hover .introduce, .dropdown:hover .restaurant, .dropdown:hover .tourism {
         display: block;
     }
-    .btn {
+    .button {
         display: inline-block;
         padding: 10px 20px;
-        font-size: 16px;
+        font-size: 15px;
+        width: 150px;
+        height: 50px;
         margin: 5px;
-        text-decoration: none;
         color: white;
+        background-color: rgb(2, 87, 79);
+        border: none;
         border-radius: 5px;
         text-align: center;
+        cursor: pointer;
     }
-    .login-btn {
-        background-color: rgb(2, 87, 79);
-    }
-
-    .signup-btn {
-        background-color: rgb(2, 87, 79);
+    .button:hover {
+        background-color: rgb(149, 179, 176);
     }
 </style>
 <body>
@@ -111,13 +139,21 @@
         </ul>
     </nav>
     <section>
-        
+        <article>
+
+        </article>
+        <aside>
+            <button class="button" onclick="redirectToLink('login.html')">로그인</button>
+            <br>
+            <button class="button" onclick="redirectToLink('signup.html')">회원가입</button>
+        </aside>
     </section>
-    <aside>
-        <a href="login.html" class="btn login-btn">로그인</a>
-        <a href="signup.html" class="btn signup-btn">회원가입</a>
-    </aside>
     <footer>
     </footer>
+    <script>
+        function redirectToLink(link) {
+            window.location.href = link;
+        }
+    </script>
 </body>
 </html>
