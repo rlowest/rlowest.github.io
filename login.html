@@ -66,6 +66,7 @@
 
     li {
         float: left;
+        margin-right: 50px;
     }
 
     li a,
@@ -170,7 +171,7 @@
 
 <body>
     <header>
-        <a href="main.html"><img src="고양시 로고.png"></a>
+        <a href="main.html"><img src="고양시 로고.png" alt="고양시 로고"></a>
     </header>
     <nav>
         <ul>
@@ -202,11 +203,11 @@
     <section>
         <article>
             <div class="loginPage">
-                <h2>Login</h2>
+                <h2>로그인</h2>
                 <form method="post" action="main.html" id="login-form">
-                    <input type="text" name="userName" placeholder="ID">
-                    <input type="password" name="userPassword" placeholder="Password">
-                    <input type="submit" value="Login">
+                    <input type="text" name="userID" placeholder="아이디">
+                    <input type="password" name="userPassword" placeholder="비밀번호">
+                    <input type="submit" value="로그인">
                 </form>
             </div>
         </article>
@@ -224,7 +225,7 @@
         }
         document.getElementById('login-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            var userName = document.querySelector('input[name="userName"]').value;
+            var userName = document.querySelector('input[name="userID"]').value;
             alert(userName + '님, 환영합니다');
             window.location.href='main.html';
         });
