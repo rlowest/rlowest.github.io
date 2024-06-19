@@ -1,115 +1,202 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>HOME</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        header {
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(2, 87, 79);
+        }
+
+        article {
+            position: relative;
+            float: left;
+            width: 80%;
+            height: 500px;
+            padding: 20px;
+            background-color: whitesmoke;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        aside {
+            float: left;
+            width: 20%;
+            height: 500px;
+            padding: 20px;
+            background-color: rgb(212, 219, 219);
+            text-align: center;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: rgb(2, 87, 79);
+            height: 60px;
+            padding: 1px 20px 1px;
+            text-align: left;
+            font-size: 12px;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            margin-right: 50px;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgb(149, 179, 176);
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .introduce,
+        .restaurant,
+        .tourism {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .introduce a,
+        .restaurant a,
+        .tourism a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .introduce a:hover,
+        .restaurant a:hover,
+        .tourism a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .introduce,
+        .dropdown:hover .restaurant,
+        .dropdown:hover .tourism {
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            width: 150px;
+            height: 50px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(2, 87, 79);
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(149, 179, 176);
+        }
+
+        .plus {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgb(2, 87, 79);
+            color: white;
+            border: none;
+            border-radius: 10%;
+            cursor: pointer;
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .plus:hover {
+            background-color: rgb(149, 179, 176);
+        }
+
+        .hover-content {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 350px;
+            height: auto;
+            background-color: white;
+            border: 1px solid rgb(2, 87, 79);
+            padding: 10px;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hover-content img {
+            width: 200px;
+            height: auto;
+        }
+
+        .link {
+            display: inline-block;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: rgb(2, 87, 79);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            background-color: rgb(149, 179, 176);
+        }
+    </style>
 </head>
-<style>
-    * {
-        box-sizing: border-box;
-    }
-    header {
-        padding: 30px;
-        text-align: center;
-        color: white;
-    }
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: rgb(2, 87, 79);
-    }
-    article {
-        float: left;
-        width: 80%;
-        height: 500px;
-        padding: 20px;
-        background-color: #ccc;
-    }
-    aside {
-        float: left;
-        width: 20%;
-        height: 500px;
-        padding: 20px;
-        background-color: #f1f1f1;
-        text-align: center;
-    }
-    section::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    footer {
-        background-color: rgb(2, 87, 79);
-        padding: 10px;
-        height: 50px;
-        text-align: center;
-        color: white;
-    }
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-    li {
-        float: left;
-    }
-    li a, .dropbtn {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    li a:hover, .dropdown:hover .dropbtn {
-        background-color: rgb(149, 179, 176);
-    }
-    li.dropdown {
-        display: inline-block;
-    }
-    .introduce, .restaurant, .tourism {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    .introduce a, .restaurant a, .tourism a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-    .introduce a:hover, .restaurant a:hover, .tourism a:hover {
-        background-color: #f1f1f1;
-    }
-    .dropdown:hover .introduce, .dropdown:hover .restaurant, .dropdown:hover .tourism {
-        display: block;
-    }
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 15px;
-        width: 150px;
-        height: 50px;
-        margin: 5px;
-        color: white;
-        background-color: rgb(2, 87, 79);
-        border: none;
-        border-radius: 5px;
-        text-align: center;
-        cursor: pointer;
-    }
-    .button:hover {
-        background-color: rgb(149, 179, 176);
-    }
-</style>
+
 <body>
     <header>
-        <a href="main.html"><img src="고양시 로고.png"></a>
+        <a href="main.html"><img src="고양시 로고.png" alt="고양시 로고"></a>
     </header>
     <nav>
         <ul>
@@ -140,7 +227,18 @@
     </nav>
     <section>
         <article>
-            <h1>마스코트</h1>
+            <button class="plus" onmouseover="showHoverContent()" onmouseout="hideHoverContent()">+</button>
+            <div class="hover-content" id="hoverContent" onmouseover="showHoverContent()"
+                onmouseout="hideHoverContent()">
+                <h1>고양고양이(~2023)</h1>
+                <img src="고양고양이.jpg" alt="고양시 전 마스코트 고양고양이">
+                <p>고양시 전 마스코트의 이름은 '고양고양이'이다. 고양시의 '고양'에서 동물 고양이를 연상시켜 만든 마스코트로, 많은 사람들에게 인기를 얻으며 고양시 홍보송 뮤직비디오에 등장하기도 하였다.</p>
+                <a href="https://youtu.be/O_fWmT9Sw0k?feature=shared" class="link">고양시 홍보송 보러가기</a>
+            </div>
+            <br>
+            <img src="마스코트.png" alt="고양시 마스코트 가와지볍씨캐릭터">
+            <br>
+            <h1>가와지볍씨캐릭터</h1>
         </article>
         <aside>
             <button class="button" onclick="redirectToLink('login.html')">로그인</button>
@@ -149,11 +247,19 @@
         </aside>
     </section>
     <footer>
+        <p>©2024.06_웹시스템설계_2311221_이은서 <br> les031007@sookmyung.ac.kr</p>
     </footer>
     <script>
         function redirectToLink(link) {
             window.location.href = link;
         }
+        function showHoverContent() {
+            document.getElementById('hoverContent').style.display = 'block';
+        }
+        function hideHoverContent() {
+            document.getElementById('hoverContent').style.display = 'none';
+        }
     </script>
 </body>
+
 </html>
