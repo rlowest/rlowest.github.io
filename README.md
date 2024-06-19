@@ -42,7 +42,7 @@
             <tbody>
                 <tr class="bg-light">
                     <td>5/21</td>
-                    <td>주제 선정 : 내가 살고 있는 지역인 고양시 소개</td>
+                    <td>주제 선정 - 내가 살고 있는 지역인 고양시 소개</td>
                     <td span class="badge bg-success">완료</span></td>
                 </tr>
                 <tr class="bg-white">
@@ -62,7 +62,7 @@
                 </tr>
                 <tr class="bg-light">
                     <td></td>
-                    <td>웹페이지 메인 컬러 선정 : #darkgreen</td>
+                    <td>웹페이지 메인 컬러 선정 - #darkgreen</td>
                     <td span class="badge bg-success">완료</span></td>
                 </tr>
                 <tr class="bg-white">
@@ -73,7 +73,27 @@
                 <tr class="bg-light">
                     <td>6/10</td>
                     <td>HOME - 레이아웃</td>
-                    <td span class="badge bg-warning">진행중</span></td>
+                    <td span class="badge bg-success">완료</span></td>
+                </tr>
+                <tr class="bg-white">
+                    <td>6/17</td>
+                    <td>main.html, login.html, signup.html, mascot.html, location.html 구현</td>
+                    <td span class="badge bg-success">완료</span></td>
+                </tr>
+                <tr class="bg-light">
+                    <td>6/18</td>
+                    <td>meal.html, dessert.html, library.html, spot.html 구현</td>
+                    <td span class="badge bg-success">완료</span></td>
+                </tr>
+                <tr class="bg-white">
+                    <td>6/19</td>
+                    <td>festival.html, map.html 구현</td>
+                    <td span class="badge bg-success">완료</span></td>
+                </tr>
+                <tr class="bg-light">
+                    <td></td>
+                    <td>영상 촬영, 보고서 작성</td>
+                    <td span class="badge bg-success">완료</span></td>
                 </tr>
             </tbody>
         </table>
