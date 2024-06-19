@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
     <style>
         * {
@@ -207,7 +207,7 @@
                 <h2>회원가입</h2>
                 <form method="post" id="signup-form">
                     <input type="text" name="userName" placeholder="이름">
-                    <input type="text" name="userID" placeholder="아이디">
+                    <input type="text" name="userID" id="userID" placeholder="아이디">
                     <input type="password" name="userPassword" placeholder="비밀번호">
                     <input type="text" name="userEmail" placeholder="이메일">
                     <input type="submit" value="회원가입">
@@ -224,16 +224,27 @@
         <p>©2024.06_웹시스템설계_2311221_이은서 <br> les031007@sookmyung.ac.kr</p>
     </footer>
     <script>
-        function redirectToLink(link) {
-            window.location.href = link;
+        function checkDuplicateID(inputID) {
+            let storedData = localStorage.getItem('userData');
+            if (storedData) {
+                let userData = JSON.parse(storedData);
+                if (userData.id === inputID) {
+                    return true; 
+                }
+            }
+            return false; 
         }
-
-        document.getElementById('signup-form').addEventListener('submit', function (event) {
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
             event.preventDefault();
             let userName = document.querySelector('input[name="userName"]').value;
             let userID = document.querySelector('input[name="userID"]').value;
             let userPassword = document.querySelector('input[name="userPassword"]').value;
             let userEmail = document.querySelector('input[name="userEmail"]').value;
+            if (checkDuplicateID(userID)) {
+                alert('이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.');
+                return;
+            }
+
             function validateEmail(email) {
                 const re = /\S+@\S+\.\S+/;
                 return re.test(email);
@@ -243,7 +254,6 @@
                 document.getElementById('signup-form').reset();
                 return;
             }
-
             let user = {
                 name: userName,
                 id: userID,
@@ -254,6 +264,10 @@
             alert(userName + '님, 회원가입이 완료되었습니다.');
             window.location.href = 'login.html';
         });
+        
+        function redirectToLink(link) {
+            window.location.href = link;
+        }
     </script>
 </body>
 
