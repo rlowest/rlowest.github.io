@@ -1,115 +1,192 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        header {
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(2, 87, 79);
+        }
+
+        article {
+            float: left;
+            width: 80%;
+            height: 500px;
+            padding: 20px;
+            background-color: whitesmoke;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 15px;
+        }
+
+        aside {
+            float: left;
+            width: 20%;
+            height: 500px;
+            padding: 20px;
+            background-color: rgb(212, 219, 219);
+            text-align: center;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: rgb(2, 87, 79);
+            height: 60px;
+            padding: 1px 20px 1px;
+            text-align: left;
+            font-size: 12px;
+            color: white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav li {
+            float: left;
+            margin-right: 50px;
+        }
+
+        nav li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgb(149, 179, 176);
+        }
+
+        nav li.dropdown {
+            display: inline-block;
+        }
+
+        .introduce,
+        .restaurant,
+        .tourism {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .introduce a,
+        .restaurant a,
+        .tourism a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .introduce a:hover,
+        .restaurant a:hover,
+        .tourism a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .introduce,
+        .dropdown:hover .restaurant,
+        .dropdown:hover .tourism {
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            width: 150px;
+            height: 50px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(2, 87, 79);
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(149, 179, 176);
+        }
+
+        .grid-item {
+            display: flex;
+            border: 1px solid rgb(2, 87, 79);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .grid-item img {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .grid-item h2 {
+            margin-left: 50px;
+            margin-top: 30px;
+        }
+
+        .moreText {
+            display: none;
+            position: absolute;
+            background-color: rgb(212, 219, 219);
+            padding-left: 0px;
+            border: 1px solid rgb(2, 87, 79);
+            margin-left: 245px;
+            margin-top: 80px;
+            width: 300px;
+            height: 120px;
+            font-size: 13px;
+            text-align: left;
+            align-items: center;
+        }
+
+        .moreText ul {
+            margin-left: 5px;
+            margin-top: 2px;
+            padding: 5px;
+            list-style-position: inside;
+        }
+    </style>
 </head>
-<style>
-    * {
-        box-sizing: border-box;
-    }
-    header {
-        padding: 30px;
-        text-align: center;
-        color: white;
-    }
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: rgb(2, 87, 79);
-    }
-    article {
-        float: left;
-        width: 80%;
-        height: 500px;
-        padding: 20px;
-        background-color: #ccc;
-    }
-    aside {
-        float: left;
-        width: 20%;
-        height: 500px;
-        padding: 20px;
-        background-color: #f1f1f1;
-        text-align: center;
-    }
-    section::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    footer {
-        background-color: rgb(2, 87, 79);
-        padding: 10px;
-        height: 50px;
-        text-align: center;
-        color: white;
-    }
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-    li {
-        float: left;
-    }
-    li a, .dropbtn {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    li a:hover, .dropdown:hover .dropbtn {
-        background-color: rgb(149, 179, 176);
-    }
-    li.dropdown {
-        display: inline-block;
-    }
-    .introduce, .restaurant, .tourism {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    .introduce a, .restaurant a, .tourism a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-    .introduce a:hover, .restaurant a:hover, .tourism a:hover {
-        background-color: #f1f1f1;
-    }
-    .dropdown:hover .introduce, .dropdown:hover .restaurant, .dropdown:hover .tourism {
-        display: block;
-    }
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 15px;
-        width: 150px;
-        height: 50px;
-        margin: 5px;
-        color: white;
-        background-color: rgb(2, 87, 79);
-        border: none;
-        border-radius: 5px;
-        text-align: center;
-        cursor: pointer;
-    }
-    .button:hover {
-        background-color: rgb(149, 179, 176);
-    }
-</style>
+
 <body>
     <header>
-        <a href="main.html"><img src="고양시 로고.png"></a>
+        <a href="main.html"><img src="고양시 로고.png" alt="고양시 로고"></a>
     </header>
     <nav>
         <ul>
@@ -140,7 +217,70 @@
     </nav>
     <section>
         <article>
-            <h1>식사</h1>
+            <div class="grid-item" onclick="togglemoreText(this)">
+                <img src="민쿡다시마.jpg" alt="화정민쿡다시마">
+                <h2>화정민쿡다시마</h2>
+                <div class="moreText">
+                    <ul>
+                        <li>위치 : 경기 고양시 덕양구 화신로260번길 37</li>
+                        <li>추천 메뉴 :
+                            <ol>
+                                <li>한우 스끼야끼 정식</li>
+                                <li>초밥 정식</li>
+                                <li>돈카츠 정식</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-item" onclick="togglemoreText(this)">
+                <img src="포폴로피자.jpg" alt="포폴로피자">
+                <h2>포폴로피자</h2>
+                <div class="moreText">
+                    <ul>
+                        <li>위치 : 경기 고양시 일산동구 정발산로 43-20 센트럴플라자 102호, 103호</li>
+                        <li>추천 메뉴 :
+                            <ol>
+                                <li>뽀모도로부라타</li>
+                                <li>카프레제샐러드</li>
+                                <li>풍기아란치니</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-item" onclick="togglemoreText(this)">
+                <img src="만돈.jpg" alt="만돈">
+                <h2>만돈</h2>
+                <div class="moreText">
+                    <ul>
+                        <li>위치 : 경기 고양시 일산동구 정발산로 24 웨스턴돔 B동 2층 225호</li>
+                        <li>추천 메뉴 :
+                            <ol>
+                                <li>블랙 트러플 카츠</li>
+                                <li>오로시 히레카츠</li>
+                                <li>만돈 반반정식</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-item" onclick="togglemoreText(this)">
+                <img src="서삼능보리밥.jpg" alt="서삼능보리밥">
+                <h2>서삼능보리밥</h2>
+                <div class="moreText">
+                    <ul>
+                        <li>위치 : 경기 고양시 덕양구 서삼릉길 124</li>
+                        <li>추천 메뉴 :
+                            <ol>
+                                <li>코다리</li>
+                                <li>쭈꾸미 볶음</li>
+                                <li>우거지 수제비</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </article>
         <aside>
             <button class="button" onclick="redirectToLink('login.html')">로그인</button>
@@ -149,11 +289,17 @@
         </aside>
     </section>
     <footer>
+        <p>©2024.06_웹시스템설계_2311221_이은서 <br> les031007@sookmyung.ac.kr</p>
     </footer>
     <script>
         function redirectToLink(link) {
             window.location.href = link;
         }
+        function togglemoreText(element) {
+            const moreText = element.querySelector('.moreText');
+            moreText.style.display = moreText.style.display === 'none' || moreText.style.display === '' ? 'block' : 'none';
+        }
     </script>
 </body>
+
 </html>
