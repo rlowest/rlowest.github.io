@@ -1,115 +1,178 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>HOME</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        header {
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(2, 87, 79);
+        }
+
+        article {
+            float: left;
+            width: 80%;
+            height: 500px;
+            padding: 20px;
+            background-color: whitesmoke;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        aside {
+            float: left;
+            width: 20%;
+            height: 500px;
+            padding: 20px;
+            background-color: rgb(212, 219, 219);
+            text-align: center;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: rgb(2, 87, 79);
+            height: 60px;
+            padding: 1px 20px 1px;
+            text-align: left;
+            font-size: 12px;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            margin-right: 50px;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgb(149, 179, 176);
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .introduce,
+        .restaurant,
+        .tourism {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .introduce a,
+        .restaurant a,
+        .tourism a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .introduce a:hover,
+        .restaurant a:hover,
+        .tourism a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .introduce,
+        .dropdown:hover .restaurant,
+        .dropdown:hover .tourism {
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            width: 150px;
+            height: 50px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(2, 87, 79);
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(149, 179, 176);
+        }
+
+        article img {
+            width: 800px;
+            height: 450px;
+            margin: 7px 40px;
+        }
+
+        .moveButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: inline-block;
+            padding: 5px;
+            font-size: 15px;
+            width: 210px;
+            height: 45px;
+            margin: 30px 200px;
+            color: white;
+            background-color: rgb(2, 87, 79);
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .moveButton:hover {
+            background-color: rgb(149, 179, 176);
+        }
+    </style>
 </head>
-<style>
-    * {
-        box-sizing: border-box;
-    }
-    header {
-        padding: 30px;
-        text-align: center;
-        color: white;
-    }
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: rgb(2, 87, 79);
-    }
-    article {
-        float: left;
-        width: 80%;
-        height: 500px;
-        padding: 20px;
-        background-color: #ccc;
-    }
-    aside {
-        float: left;
-        width: 20%;
-        height: 500px;
-        padding: 20px;
-        background-color: #f1f1f1;
-        text-align: center;
-    }
-    section::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    footer {
-        background-color: rgb(2, 87, 79);
-        padding: 10px;
-        height: 50px;
-        text-align: center;
-        color: white;
-    }
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-    li {
-        float: left;
-    }
-    li a, .dropbtn {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    li a:hover, .dropdown:hover .dropbtn {
-        background-color: rgb(149, 179, 176);
-    }
-    li.dropdown {
-        display: inline-block;
-    }
-    .introduce, .restaurant, .tourism {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    .introduce a, .restaurant a, .tourism a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-    .introduce a:hover, .restaurant a:hover, .tourism a:hover {
-        background-color: #f1f1f1;
-    }
-    .dropdown:hover .introduce, .dropdown:hover .restaurant, .dropdown:hover .tourism {
-        display: block;
-    }
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 15px;
-        width: 150px;
-        height: 50px;
-        margin: 5px;
-        color: white;
-        background-color: rgb(2, 87, 79);
-        border: none;
-        border-radius: 5px;
-        text-align: center;
-        cursor: pointer;
-    }
-    .button:hover {
-        background-color: rgb(149, 179, 176);
-    }
-</style>
+
 <body>
     <header>
-        <a href="main.html"><img src="고양시 로고.png"></a>
+        <a href="main.html"><img src="고양시 로고.png" alt="고양시 로고"></a>
     </header>
     <nav>
         <ul>
@@ -140,7 +203,9 @@
     </nav>
     <section>
         <article>
-            <h1>도서관</h1>
+            <img src="도서관지도.jpg" alt="도서관지도">
+            <button class="moveButton" onclick="redirectToLink('https://www.goyanglib.or.kr/center/index.do')">고양시 도서관센터
+                바로가기</button>
         </article>
         <aside>
             <button class="button" onclick="redirectToLink('login.html')">로그인</button>
@@ -149,6 +214,7 @@
         </aside>
     </section>
     <footer>
+        <p>©2024.06_웹시스템설계_2311221_이은서 <br> les031007@sookmyung.ac.kr</p>
     </footer>
     <script>
         function redirectToLink(link) {
