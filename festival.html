@@ -1,115 +1,241 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>HOME</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        header {
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(2, 87, 79);
+        }
+
+        article {
+            float: left;
+            width: 80%;
+            height: 500px;
+            padding: 20px;
+            background-color: whitesmoke;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        aside {
+            float: left;
+            width: 20%;
+            height: 500px;
+            padding: 20px;
+            background-color: rgb(212, 219, 219);
+            text-align: center;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: rgb(2, 87, 79);
+            height: 60px;
+            padding: 1px 20px 1px;
+            text-align: left;
+            font-size: 12px;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            margin-right: 50px;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgb(149, 179, 176);
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .introduce,
+        .restaurant,
+        .tourism {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .introduce a,
+        .restaurant a,
+        .tourism a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .introduce a:hover,
+        .restaurant a:hover,
+        .tourism a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .introduce,
+        .dropdown:hover .restaurant,
+        .dropdown:hover .tourism {
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            width: 150px;
+            height: 50px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(2, 87, 79);
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(149, 179, 176);
+        }
+
+        .first img,
+        .second img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .first,
+        .second {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left1-section {
+            flex: 2;
+            text-align: center;
+            float: left;
+            margin-left: 20px;
+            margin-right: 50px;
+            margin-bottom: 10px;
+        }
+
+        .right1-section {
+            flex: 8;
+            padding: 0 20px;
+            text-align: left;
+            margin-left: 250px;
+        }
+
+        .right1-section p {
+            display: none;
+            font-size: 12px;
+        }
+
+        .right1-section button {
+            background-color: rgb(2, 87, 79);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            float: right;
+            margin-top: 0px;
+        }
+
+        .right1-section button:hover,
+        .left2-section button:hover {
+            background-color: rgb(149, 179, 176);
+        }
+
+        .left2-section {
+            flex: 8;
+            padding: 0 20px;
+            text-align: right;
+            margin-right: 250px;
+        }
+
+        .left2-section p {
+            display: none;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .right2-section {
+            flex: 2;
+            text-align: center;
+            float: right;
+            margin-right: 20px;
+            margin-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        .left2-section button {
+            background-color: rgb(2, 87, 79);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            float: left;
+            margin-top: 0px;
+        }
+
+        .zoom {
+            transition: transform 0.3s ease;
+        }
+
+        .zoom:hover {
+            transform: scale(1.5);
+        }
+    </style>
 </head>
-<style>
-    * {
-        box-sizing: border-box;
-    }
-    header {
-        padding: 30px;
-        text-align: center;
-        color: white;
-    }
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: rgb(2, 87, 79);
-    }
-    article {
-        float: left;
-        width: 80%;
-        height: 500px;
-        padding: 20px;
-        background-color: #ccc;
-    }
-    aside {
-        float: left;
-        width: 20%;
-        height: 500px;
-        padding: 20px;
-        background-color: #f1f1f1;
-        text-align: center;
-    }
-    section::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    footer {
-        background-color: rgb(2, 87, 79);
-        padding: 10px;
-        height: 50px;
-        text-align: center;
-        color: white;
-    }
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-    li {
-        float: left;
-    }
-    li a, .dropbtn {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    li a:hover, .dropdown:hover .dropbtn {
-        background-color: rgb(149, 179, 176);
-    }
-    li.dropdown {
-        display: inline-block;
-    }
-    .introduce, .restaurant, .tourism {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    .introduce a, .restaurant a, .tourism a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-    .introduce a:hover, .restaurant a:hover, .tourism a:hover {
-        background-color: #f1f1f1;
-    }
-    .dropdown:hover .introduce, .dropdown:hover .restaurant, .dropdown:hover .tourism {
-        display: block;
-    }
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 15px;
-        width: 150px;
-        height: 50px;
-        margin: 5px;
-        color: white;
-        background-color: rgb(2, 87, 79);
-        border: none;
-        border-radius: 5px;
-        text-align: center;
-        cursor: pointer;
-    }
-    .button:hover {
-        background-color: rgb(149, 179, 176);
-    }
-</style>
+
 <body>
     <header>
-        <a href="main.html"><img src="고양시 로고.png"></a>
+        <a href="main.html"><img src="고양시 로고.png" alt="고양시 로고"></a>
     </header>
     <nav>
         <ul>
@@ -140,7 +266,38 @@
     </nav>
     <section>
         <article>
-            <h1>축제/행사</h1>
+            <div class="first">
+                <div class="left1-section">
+                    <img src="고양국제꽃박람회.jpg" alt="고양국제꽃박람회" class="zoom">
+                </div>
+                <div class="right1-section">
+                    <button onclick="toggleText1()">더보기</button>
+                    <h2>고양국제꽃박람회</h2>
+                    <hr>
+                    <ul>
+                        <li>일시 : 매년 4~5월</li>
+                        <br>
+                        <li>장소 : 일산호수공원</li>
+                    </ul>
+                    <p id="moreText1">고양국제꽃박람회는 ‘꽃의 도시’ 고양특례시에서 매년 4~5월 개최되는 국내 대표이자 최대 규모 꽃박람회다. 매년 새로운 주제로 진행되는 축제에 국내외 우수 화훼업체가 참가해 다양한 주제의 전시와 최신 화훼 트렌드를 선보이고, 화훼산업 비즈니스 교류도 활발하게 펼쳐진다. <br> 박람회 내내 일산호수공원은 온통 꽃으로 물들고, 이를 즐기려는 수많은 인파가 몰린다. 이밖에도 매년 9~10월 일산호수공원 일원에서 고양가을꽃축제도 진행된다. 가을을 만끽할 수 있는 꽃과 프로그램이 준비돼 국제꽃박람회만큼 높은 인기를 얻고 있다.</p>
+                </div>
+            </div>
+            <div class="second">
+                <div class="right2-section">
+                    <img src="고양행주문화제.jpg" alt="고양행주문화제" class="zoom">
+                </div>
+                <div class="left2-section">
+                    <button onclick="toggleText2()">더보기</button>
+                    <h2>고양행주문화제</h2>
+                    <hr>
+                    <ul>
+                        <li>일시 : 매년 5월</li>
+                        <br>
+                        <li>장소 : 행주산성, 행주산성 역사공원</li>
+                    </ul>
+                    <p id="moreText2">고양행주문화제는 임진왜란 3대 대첩의 하나인 행주대첩의 얼을 계승하고 승전을 기념하는 고양특례시 대표 역사문화축제다. 1993년부터 하나의 독립된 문화제로 진행되기 시작했으며, 현재는 매년 5월에 정기적으로 진행되고 있다. 축제는 주로 행주산성과 역사공원에서 진행되며, 행주대첩의 역사성을 부각하는 프로그램이 다수 마련 돼있다. <br> 고유제, 위령굿 등의 전통의례 프로그램을 비롯해 전통행렬, 투석전, 수상 불꽃놀이, 공연 등도 진행된다. 최근에는 콘텐츠 확대에도 노력하고 있는데, 뮤지컬 행주대첩과 모바일 행주대첩 게임 등을 선보이기도 했다.</p>
+                </div>
+            </div>
         </article>
         <aside>
             <button class="button" onclick="redirectToLink('login.html')">로그인</button>
@@ -149,10 +306,34 @@
         </aside>
     </section>
     <footer>
+        <p>©2024.06_웹시스템설계_2311221_이은서 <br> les031007@sookmyung.ac.kr</p>
     </footer>
     <script>
         function redirectToLink(link) {
             window.location.href = link;
+        }
+        function toggleText1() {
+            let moreText1 = document.getElementById("moreText1");
+            let btnText = document.querySelector('.left-section button');
+            let computedStyle = window.getComputedStyle(moreText1);
+            if (moreText1.style.display === "none") {
+                moreText1.style.display = "block";
+            }
+            else {
+                moreText1.style.display = "none";
+                btnText.innerHTML = "더보기";
+            }
+        }
+        function toggleText2() {
+            let moreText2 = document.getElementById("moreText2");
+            let btnText = document.querySelector('.right-section button');
+            let computedStyle = window.getComputedStyle(moreText2);
+            if (computedStyle.display === "none") {
+                moreText2.style.display = "block";
+            } else {
+                moreText2.style.display = "none";
+                btnText.innerHTML = "더보기";
+            }
         }
     </script>
 </body>
