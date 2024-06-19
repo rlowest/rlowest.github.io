@@ -1,115 +1,218 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>HOME</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        header {
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(2, 87, 79);
+        }
+
+        article {
+            float: left;
+            width: 80%;
+            height: 500px;
+            padding: 20px;
+            background-color: whitesmoke;
+            display: flex;
+            text-align: center;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        aside {
+            float: left;
+            width: 20%;
+            height: 500px;
+            padding: 20px;
+            background-color: rgb(212, 219, 219);
+            text-align: center;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: rgb(2, 87, 79);
+            height: 60px;
+            padding: 1px 20px 1px;
+            text-align: left;
+            font-size: 12px;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            margin-right: 50px;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgb(149, 179, 176);
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .introduce,
+        .restaurant,
+        .tourism {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .introduce a,
+        .restaurant a,
+        .tourism a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .introduce a:hover,
+        .restaurant a:hover,
+        .tourism a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .introduce,
+        .dropdown:hover .restaurant,
+        .dropdown:hover .tourism {
+            display: block;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            width: 150px;
+            height: 50px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(2, 87, 79);
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(149, 179, 176);
+        }
+
+        .card {
+            width: 20%;
+            height: 400px;
+            margin: 10px;
+            border: 1px solid rgb(2, 87, 79);
+            border-radius: 10px;
+            background-color: rgb(212, 219, 219);
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .card.flipped .front {
+            transform: rotateY(180deg);
+            z-index: -1;
+            display: none;
+        }
+
+        .card.flipped .back {
+            transform: rotateY(0deg);
+            z-index: 1;
+            display: block;
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            backface-visibility: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .front {
+            padding-top: 40px;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+            display: none;
+        }
+
+        .reservation {
+            display: inline-block;
+            padding: 5px 20px;
+            font-size: 15px;
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(2, 87, 79);
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .reservation:hover {
+            background-color: rgb(149, 179, 176);
+        }
+
+        .front img {
+            width: 150px;
+            height: 150px;
+            margin-top: 70px;
+        }
+    </style>
 </head>
-<style>
-    * {
-        box-sizing: border-box;
-    }
-    header {
-        padding: 30px;
-        text-align: center;
-        color: white;
-    }
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: rgb(2, 87, 79);
-    }
-    article {
-        float: left;
-        width: 80%;
-        height: 500px;
-        padding: 20px;
-        background-color: #ccc;
-    }
-    aside {
-        float: left;
-        width: 20%;
-        height: 500px;
-        padding: 20px;
-        background-color: #f1f1f1;
-        text-align: center;
-    }
-    section::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    footer {
-        background-color: rgb(2, 87, 79);
-        padding: 10px;
-        height: 50px;
-        text-align: center;
-        color: white;
-    }
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-    li {
-        float: left;
-    }
-    li a, .dropbtn {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    li a:hover, .dropdown:hover .dropbtn {
-        background-color: rgb(149, 179, 176);
-    }
-    li.dropdown {
-        display: inline-block;
-    }
-    .introduce, .restaurant, .tourism {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    .introduce a, .restaurant a, .tourism a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-    .introduce a:hover, .restaurant a:hover, .tourism a:hover {
-        background-color: #f1f1f1;
-    }
-    .dropdown:hover .introduce, .dropdown:hover .restaurant, .dropdown:hover .tourism {
-        display: block;
-    }
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 15px;
-        width: 150px;
-        height: 50px;
-        margin: 5px;
-        color: white;
-        background-color: rgb(2, 87, 79);
-        border: none;
-        border-radius: 5px;
-        text-align: center;
-        cursor: pointer;
-    }
-    .button:hover {
-        background-color: rgb(149, 179, 176);
-    }
-</style>
+
 <body>
     <header>
-        <a href="main.html"><img src="고양시 로고.png"></a>
+        <a href="main.html"><img src="고양시 로고.png" alt="고양시 로고"></a>
     </header>
     <nav>
         <ul>
@@ -140,7 +243,102 @@
     </nav>
     <section>
         <article>
-            <h1>오시는 길</h1>
+            <div class="card" onclick="flipCard(this)">
+                <div class="front">
+                    <h2>KTX<br>(행신역)</h2>
+                    <button class="reservation"
+                        onclick="event.stopPropagation(); redirectToLink('https://www.letskorail.com')">예매하기</button>
+                </div>
+                <div class="back" style="font-size: 13px;">
+                    <p><b>KTX 경부선</b> <br>
+                        행신-서울-광명-천안아산-오송<br>-대전-동대구-경주-울산-부산
+                        <br><br>
+                        <b>KTX 호남선</b> <br>
+                        행신-용산-광명-오송-공주-<br>익산-정읍-광주송정-나주-목포
+                        <br><br>
+                        <b>KTX 경전선</b> <br>
+                        행신-서울-광명-천안아산-오송<br>-대전-동대구-밀양-창원중앙<br>-마산-진주
+                        <br><br>
+                        <b>KTX 전라선</b> <br>
+                        행신-용산-광명-천안아산-공주<br>-익산-전주-남원-구례구-순천<br>-여천-여수엑스포
+                        <br><br>
+                        <b>KTX 강릉선</b> <br>
+                        행신-서울-청량리-양평-만종<br>-횡성-둔내-평창-강릉
+                    </p>
+                </div>
+            </div>
+            <div class="card" onclick="flipCard(this)">
+                <div class="front">
+                    <h2>고양종합터미널</h2>
+                    <button class="reservation"
+                        onclick="event.stopPropagation(); redirectToLink('https://www.bustago.or.kr/newweb/kr/index.do')">시외버스
+                        예매하기</button>
+                    <br>
+                    <button class="reservation"
+                        onclick="event.stopPropagation(); redirectToLink('https://www.kobus.co.kr/main.do')">고속버스
+                        예매하기</button>
+                </div>
+                <div class="back" style="font-size: 11px;">
+                    <p>가평시외버스터미널 <br>
+                        강릉고속버스터미널 <br>
+                        고한사북공영버스터미널 <br>
+                        공주종합버스터미널 <br>
+                        군산시외버스터미널 <br>
+                        당진버스터미널 <br>
+                        대전복합터미널 <br>
+                        부여시외버스터미널 <br>
+                        서산공용버스터미널 <br>
+                        속초시외버스터미널 <br>
+                        신남시외버스터미널 <br>
+                        안산버스터미널 <br>
+                        원주시외버스터미널 <br>
+                        원통공용버스터미널 <br>
+                        인제시외버스터미널 <br>
+                        전주고속버스터미널 <br>
+                        정안휴게소(순천방향) 고속버스환승정류소 <br>
+                        천안종합버스터미널 <br>
+                        청주시외버스터미널 <br>
+                        청평터미널 <br>
+                        춘천시외버스터미널 <br>
+                        충주공용버스터미널 <br>
+                        태백시외버스터미널 <br>
+                        태안공용버스터미널 <br>
+                        홍천터미널 <br>
+                        횡성휴게소(강릉방향) 고속버스환승정류소</p>
+                </div>
+            </div>
+            <div class="card" onclick="flipCard(this)">
+                <div class="front">
+                    <h2>지하철</h2>
+                    <img src="지하철.png" alt="지하철">
+                </div>
+                <div class="back">
+                    <p><b>3호선</b> <br>
+                        대화-주엽-정발산<br>-마두-백석-대곡<br>-화정-원당-원흥<br>-삼송-지축 <br><br> </p>
+                    <p><b>경의중앙선</b> <br>
+                        탄현-일산-풍산-백마<br>-곡산-대곡-능곡<br>-행신-강매-한국항공대</p>
+                </div>
+            </div>
+            <div class="card" onclick="flipCard(this)">
+                <div class="front">
+                    <h2>버스</h2>
+                    <img src="버스.png" alt="버스">
+                </div>
+                <div class="back" style="font-size: 14px;">
+                    <p><b>일반버스</b><br>
+                        11번 56번 66번 67번 75번<br> <br>
+                        <b>좌석버스</b><br>
+                        921번 85번 830번 21번 60-5번<br> <br>
+                        <b>마을버스</b><br>
+                        017A번 021번 023번 036번 056번<br> <br>
+                        <b>공항버스</b><br>
+                        3200번 3300번 5600번 <br> 7300번 7400번<br> <br>
+                        <b>광역버스</b><br>
+                        9707번 9714번 9711번 <br> M7646번 M7412번
+                    </p>
+                    <br> 버스는 종류가 너무 많은 관계로 <br>종류별 5개씩만 작성함.
+                </div>
+            </div>
         </article>
         <aside>
             <button class="button" onclick="redirectToLink('login.html')">로그인</button>
@@ -149,11 +347,16 @@
         </aside>
     </section>
     <footer>
+        <p>©2024.06_웹시스템설계_2311221_이은서 <br> les031007@sookmyung.ac.kr</p>
     </footer>
     <script>
         function redirectToLink(link) {
             window.location.href = link;
         }
+        function flipCard(element) {
+            element.classList.toggle('flipped');
+        }
     </script>
 </body>
+
 </html>
